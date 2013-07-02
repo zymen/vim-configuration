@@ -18,6 +18,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 imap jj <Esc>
 nmap <Space> :
+nmap <C-o> ddO
 
 filetype plugin on
 

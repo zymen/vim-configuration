@@ -11,6 +11,7 @@ set expandtab
 set shiftwidth=2
 set smarttab
 set smartindent
+set laststatus=2
 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -19,7 +20,7 @@ map <C-l> <C-W>l
 imap jj <Esc>
 nmap <Space> :
 nmap <C-o> ddO
-nnoremap <silent> <C-f>p     :FufFile<CR>
+nnoremap <silent> ,ff     :FufCoverageFile<CR>
 
 filetype plugin on
 

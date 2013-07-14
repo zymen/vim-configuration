@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-sparkup"]
 	path = .vim/bundle/vim-sparkup
 	url = https://github.com/tristen/vim-sparkup.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

@@ -12,6 +12,8 @@ set shiftwidth=2
 set smarttab
 set smartindent
 set laststatus=2
+set t_Co=25
+let g:Powerline_symbols = "fancy"
 
 map <C-j> <C-W>j
 map <C-k> <C-W>k

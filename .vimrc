@@ -18,6 +18,8 @@ let g:Powerline_symbols = "fancy"
 " Stop creating swap files at edit time
 set noswapfile
 
+map <F7> :NERDTreeToggle<CR>
+
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h

@@ -48,10 +48,16 @@ let mapleader = ","
 " Stop creating swap files at edit time
 set noswapfile
 
-" Make it possible to fast show/hide NERDTree
-" Shortcuts
+  " Make it possible to fast show/hide NERDTree
   map <F7> :NERDTreeToggle<CR>
 
+  " Make it easier to switch between windows
+  map <C-j> <C-W>j
+  map <C-k> <C-W>k
+  map <C-h> <C-W>h
+  map <C-l> <C-W>l
+
+  " Make it easier to move windows
   map <C-j> <C-W>j
   map <C-k> <C-W>k
   map <C-h> <C-W>h
@@ -69,9 +75,15 @@ set noswapfile
   " faster idea to switch into normal mode
   imap jj <Esc>
 
+  " <leader>,v for paste from clipboard (check if it works for linux)
+  nmap <leader>v "*p
+
   " Convert two key-press (shift+;) into one
   nmap <Space> :
   nmap <C-o> ddO
   nnoremap <silent> <Leader>ff     :FufCoverageFile<CR>
+
+  " Format json
+  nmap <F11> :%! python -m json.tool<CR>
 
 filetype plugin indent on

@@ -57,11 +57,11 @@ set noswapfile
   map <C-h> <C-W>h
   map <C-l> <C-W>l
 
-  " Make it easier to move windows
-  map <C-j> <C-W>j
-  map <C-k> <C-W>k
-  map <C-h> <C-W>h
-  map <C-l> <C-W>l
+  " Make move faster
+  map <A-j> 3j
+  map <A-k> 3k
+  map <A-h> 3h
+  map <A-l> 3l
 
   " Edit config on shift+f12
   map <S-F12> :e ~/.vimrc<CR>
@@ -77,6 +77,8 @@ set noswapfile
 
   " <leader>,v for paste from clipboard (check if it works for linux)
   nmap <leader>v "*p
+
+  nmap <leader>feu :set fileencoding=utf8<CR>
 
   " Convert two key-press (shift+;) into one
   nmap <Space> :

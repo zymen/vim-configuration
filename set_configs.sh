@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm ~/.vimrc
-rm ~/.vim
+rm -rf ~/.vim
 result=$PWD
 ln -s ${result}/.vimrc ~/.vimrc
 ln -s ${result}/.vim ~/.vim

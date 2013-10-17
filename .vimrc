@@ -24,6 +24,9 @@ set t_Co=256
   Bundle 'kien/ctrlp.vim'
   Bundle 'tpope/vim-fugitive'
   Bundle 'desert-warm-256'
+  Bundle 'Lokaltog/powerline'
+  Bundle 'scrooloose/syntastic'
+  Bundle 'vim-scripts/camelcasemotion'
   colorscheme desert-warm-256
 
 set nowrap
@@ -76,7 +79,7 @@ set noswapfile
   imap jj <Esc>
 
   " <leader>,v for paste from clipboard (check if it works for linux)
-  nmap <leader>v "*p
+  nmap <leader>v "*P
 
   nmap <leader>feu :set fileencoding=utf8<CR>
 

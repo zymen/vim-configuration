@@ -1,19 +1,28 @@
 set nocompatible
+" configure and run Vundle
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+
 set number
 set ignorecase
 set ruler
 set smartcase
 set hlsearch
-color desert
+
+" selects autocompletion type
+set omnifunc=syntaxcomplete#Complete
+
+" updates way of presenting items on suggestion list
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 filetype off " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-set t_Co=256
+" fold
+  set foldmethod=indent
 
 " let Vundle manage Vundle
-  Bundle 'gmarik/vundle'
+  Bundle 'Valloric/YouCompleteMe'
   Bundle 'msanders/snipmate.vim'
   Bundle 'mattn/emmet-vim'
   Bundle 'tpope/vim-surround'
@@ -27,29 +36,37 @@ set t_Co=256
   Bundle 'Lokaltog/powerline'
   Bundle 'scrooloose/syntastic'
   Bundle 'vim-scripts/camelcasemotion'
-  colorscheme desert-warm-256
+  Bundle 'mattn/emmet-vim'
 
-set nowrap
+" set colors, enable colors schema
+  set t_Co=256
+  color desert
 
-" Actions on action
+" disable warpping long lines.
+  set nowrap
+
+" Reload .vimrc after saving it
   autocmd! bufwritepost .vimrc source %
+  "autocmd VimLeave * call SaveSession()
 
-syntax enable
-" set encoding=utf8
-"
-" convert tabs into spaces
-set expandtab
-set shiftwidth=2
-set smarttab
-set smartindent
-set laststatus=2
+  syntax enable
+
+" Encoding for screen not for file!
+  set encoding=utf8
+
+" Convert tabs into spaces
+  set expandtab
+  set shiftwidth=2
+  set smarttab
+  set smartindent
+  set laststatus=2
 
 let g:Powerline_symbols = "fancy"
 
 let mapleader = ","
 
 " Stop creating swap files at edit time
-set noswapfile
+  set noswapfile
 
   " Make it possible to fast show/hide NERDTree
   map <F7> :NERDTreeToggle<CR>
@@ -78,17 +95,29 @@ set noswapfile
   " faster idea to switch into normal mode
   imap jj <Esc>
 
-  " <leader>,v for paste from clipboard (check if it works for linux)
-  nmap <leader>v "*P
+  nmap <leader>w :w<CR><ESC>
 
   nmap <leader>feu :set fileencoding=utf8<CR>
 
   " Convert two key-press (shift+;) into one
   nmap <Space> :
-  nmap <C-o> ddO
   nnoremap <silent> <Leader>ff     :FufCoverageFile<CR>
+  nnoremap <silent> <Leader>fr     :FufRenewCache<CR>
+  nnoremap <silent> <Leader>fc     :FufTag<CR>
+  nnoremap <silent> <Leader>fb     :FufBuffer<CR>
 
   " Format json
   nmap <F11> :%! python -m json.tool<CR>
 
 filetype plugin indent on
+
+" making completion menu looks better
+highlight Pmenu guibg=brown gui=bold
+highlight Pmenu ctermbg=138 gui=bold
+
+" Remove some types of files from fuzzy finder list
+let g:fuf_file_exclude = '\vnode_modules|\~$|\.(o|exe|dll|bak|pyc|orig|swp|jpg|png|gif)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_coveragefile_exclude = '\vnode_modules|\~$|\.(o|exe|pyc|dll|bak|orig|swp|jpg|png|gif)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_dir_exclude = '\vnode_modules|*tmp-mixture.*'
+
+let g:ycm_key_list_select_completion = ['<Down>']

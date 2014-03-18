@@ -22,9 +22,10 @@ filetype off " required!
   set foldmethod=indent
 
 " let Vundle manage Vundle
+  Bundle 'sheerun/vim-polyglot'
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'msanders/snipmate.vim'
-  Bundle 'mattn/emmet-vim'
+  "  Bundle 'mattn/emmet-vim'
   Bundle 'tpope/vim-surround'
   Bundle 'L9'
   Bundle 'FuzzyFinder'
@@ -95,8 +96,6 @@ let mapleader = ","
   " faster idea to switch into normal mode
   imap jj <Esc>
 
-  nmap <leader>w :w<CR><ESC>
-
   nmap <leader>feu :set fileencoding=utf8<CR>
 
   " Convert two key-press (shift+;) into one
@@ -109,6 +108,12 @@ let mapleader = ","
   " Format json
   nmap <F11> :%! python -m json.tool<CR>
 
+  " open vim configuration
+  nmap <leader>ovc :e ~/.vimrc<CR>
+
+  "faster tabs opening
+  nmap <C-W>t :tabe<CR>
+
 filetype plugin indent on
 
 " making completion menu looks better
@@ -120,4 +125,8 @@ let g:fuf_file_exclude = '\vnode_modules|\~$|\.(o|exe|dll|bak|pyc|orig|swp|jpg|p
 let g:fuf_coveragefile_exclude = '\vnode_modules|\~$|\.(o|exe|pyc|dll|bak|orig|swp|jpg|png|gif)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 let g:fuf_dir_exclude = '\vnode_modules|*tmp-mixture.*'
 
+" fixing problem with using tab by YCM that dropped support for snipmate
 let g:ycm_key_list_select_completion = ['<Down>']
+
+" redefining trigger for emmet
+let g:user_emmet_leader_key='<C-E>'
